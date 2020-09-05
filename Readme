@@ -1,0 +1,16 @@
+Requirements- You should have node.js, mongodb & angular 
+
+Steps for Running Application
+ 1) cd TODOBackend
+ 2) npm install
+ 3) nodemon index.js
+ 4)cd ..
+ 5) cd TODOFrontend
+ 6) ng serve
+
+go to the localhost:4200. It contains followring operation:
+1. Add product 
+2. Delete product
+3. Select all product
+4. Select product by id
+5. Update product

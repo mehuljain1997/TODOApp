@@ -1,0 +1,13 @@
+
+
+<h3 style="text-align: center; color:greenyellow;">Select  Any Operation </h3>
+<br>
+<div class="example-button-row" style="text-align: center; " >
+  <button (click)="navigate1()" mat-flat-button color="warn" >Add Product</button>&nbsp;&nbsp;&nbsp;
+  <button (click)="DeleteRecord()" mat-flat-button color="primary">Delete  Product</button>&nbsp;&nbsp;&nbsp;
+  <button (click)="SelectRecord()" mat-flat-button color="accent"   [class.spinner]="loading" [disabled]="loading" >Select All Product</button>&nbsp;&nbsp;&nbsp;
+  <button (click)="SelectByPId()" mat-flat-button color="warn">Select Product By Id</button>&nbsp;&nbsp;&nbsp;
+  <button (click)="UpdateRecord()" mat-flat-button color="primary" >Update Product</button>&nbsp;&nbsp;&nbsp;
+
+</div>
+
