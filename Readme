@@ -4,12 +4,13 @@ Steps for Running Application
  1) cd TODOBackend
  2) npm install
  3) nodemon index.js
- 4)cd ..
+ 4)open new Terminal
  5) cd TODOFrontend
- 6) ng serve
- 7) localhost:4200
- 8) click login button
- 9) Use username = john and password = password123admin 
+ 6) npm install
+ 7) ng serve
+ 8) localhost:4200
+ 9) click login button
+ 10) Use username = john and password = password123admin
 
 go to the localhost:4200. It contains followring operation:
 1. Add product 
