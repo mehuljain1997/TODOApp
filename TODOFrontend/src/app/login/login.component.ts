@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
       if(this.response!= undefined) {
 
         localStorage.setItem('token',this.response)
-        alert('Please use this Token: - '+this.response)
+        alert(`Thanks ${user} for successfully login`)
         this.router.navigate(['/home'])
 
       }

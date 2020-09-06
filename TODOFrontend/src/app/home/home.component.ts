@@ -29,6 +29,12 @@ export class HomeComponent implements OnInit {
 
   }
 
+  logout(){
+    console.log('inside logout')
+    localStorage.removeItem('token')
+    alert('login again')
+  }
+
   addproduct(){
  
     this.router.navigate(['/create']);
