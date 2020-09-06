@@ -1,16 +1,23 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { LoginService } from '../login/login.service';
+import { environment } from '../../environments/environment'
 
 @Injectable({
   providedIn: 'root'
 })
 export class SelectService {
-
-  constructor(private http : HttpClient) { }
+ Token
+  constructor(private http : HttpClient, private loginservice:LoginService) { }
 
   getAllRecord(data: any): Observable<any> {
-    return this.http.get("http://localhost:3000/product", data);
+ 
+
+  
+    const headers = {'Authorization': `Bearer ${localStorage.getItem('token')}`} 
+
+    return this.http.get("http://localhost:3000/product", {headers});
 
   }
   

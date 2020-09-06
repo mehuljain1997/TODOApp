@@ -9,13 +9,13 @@ import { SelectByPIdService } from './select-by-pid.service';
 })
 export class SelectByIdComponent implements OnInit {
 
-  xyz: any;
+  responsez: any;
   @Input() selectidmessage: String
   constructor(private router: Router, private selectByPIdServie :SelectByPIdService ) { }
   
  
 public p: any;
- xy: any;
+ response: any;
 
   
   fetchByPId(py) {
@@ -24,7 +24,7 @@ public p: any;
 
     this.selectByPIdServie.getRecordByPId(py).subscribe((result: any) => {
 
-      this.xy = result;   
+      this.response = result;   
     })
  
 

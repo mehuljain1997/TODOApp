@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { LoginService } from '../login/login.service';
+import { environment } from '../../environments/environment'
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +12,8 @@ export class UpdateService {
   PId: number;
   PType: String;
   PName: String;
-  constructor(private http: HttpClient) { }
+  Token
+  constructor(private http: HttpClient,private loginservice: LoginService) { }
 
 
 
@@ -18,11 +21,11 @@ export class UpdateService {
   {
 
   this.PId = data.PId;;
- 
 
-   
-   // return this.http.post("http://localhost:3000/notes", body )
-   return this.http.put(`http://localhost:3000/product/${this.PId}` , data)
+
+  const headers = {'Authorization': `Bearer ${localStorage.getItem('token')}`} 
+
+   return this.http.put(`http://localhost:3000/product/${this.PId}` , data, {headers})
   }
 
  

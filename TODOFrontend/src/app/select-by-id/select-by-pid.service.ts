@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { SelectByIdComponent } from './select-by-id.component';
+import { LoginService } from '../login/login.service';
+import { environment } from '../../environments/environment'
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class SelectByPIdService {
-
+Token
   
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private loginservice: LoginService) {
 
    }
 
@@ -18,8 +20,9 @@ export class SelectByPIdService {
 
   
   getRecordByPId(data: any): Observable<any> {
- 
-    return this.http.get('http://localhost:3000/product/'+ data);
+
+    const headers = {'Authorization': `Bearer ${localStorage.getItem('token')}`} 
+    return this.http.get('http://localhost:3000/product/'+ data, {headers});
 
   }
 

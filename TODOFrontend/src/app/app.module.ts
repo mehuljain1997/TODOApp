@@ -12,6 +12,8 @@ import { SelectByIdComponent } from './select-by-id/select-by-id.component';
 import { UpdateComponent } from './update/update.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AlloperationComponent } from './alloperation/alloperation.component';
+import { LoginComponent } from './login/login.component';
+import { LoginresisterComponent } from './loginresister/loginresister.component';
 
 
 
@@ -34,7 +36,9 @@ import { AlloperationComponent } from './alloperation/alloperation.component';
     SelectComponent,
     SelectByIdComponent,
     UpdateComponent,
-    AlloperationComponent
+    AlloperationComponent,
+    LoginComponent,
+    LoginresisterComponent
   ],
   imports: [
     BrowserModule,

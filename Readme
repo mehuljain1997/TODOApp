@@ -7,6 +7,9 @@ Steps for Running Application
  4)cd ..
  5) cd TODOFrontend
  6) ng serve
+ 7) localhost:4200
+ 8) click login button
+ 9) Use username = john and password = password123admin 
 
 go to the localhost:4200. It contains followring operation:
 1. Add product 

@@ -12,8 +12,8 @@ export class DeleteComponent implements OnInit {
   constructor(private router: Router, private deleteService: DeleteService) { }
 
   public k: any;
-  xyz: any;
-  xy: any;
+  responsez: any;
+  response: any;
   ngOnInit() {
    
   }
@@ -28,11 +28,11 @@ export class DeleteComponent implements OnInit {
 
  this.k = Id;
 
-    this.xyz = Id;
+    this.responsez = Id;
     this.deleteService.deleteRecordByPId(Id).subscribe((result: any) => {
 
       alert(result.message)
-      this.xy = result.message;
+      this.response = result.message;
   
 
   })

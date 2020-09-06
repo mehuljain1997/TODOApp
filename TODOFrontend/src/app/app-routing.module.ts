@@ -7,13 +7,17 @@ import { SelectByIdComponent } from './select-by-id/select-by-id.component';
 import { DeleteComponent } from './delete/delete.component';
 import { UpdateComponent } from './update/update.component';
 import { AlloperationComponent } from './alloperation/alloperation.component';
+import { LoginComponent } from './login/login.component';
+import { LoginresisterComponent } from './loginresister/loginresister.component';
 
 
 const routes: Routes = [
   { path: '',
-  redirectTo: '/home',
+  redirectTo: '/loginregister',
   pathMatch: 'full'
 },
+{path: 'loginregister', component: LoginresisterComponent},
+{ path: 'login', component: LoginComponent },
   { path: 'create', component: CreateComponent },
   { path: 'home', component: HomeComponent },
   { path: 'select', component: SelectComponent },

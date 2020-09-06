@@ -8,8 +8,8 @@ import { UpdateService } from './update.service';
   styleUrls: ['./update.component.css']
 })
 export class UpdateComponent implements OnInit {
-  xy: any;
-  abc: any;
+  response: any;
+
   pid: Number;
   Pname: string;
   Ptype: string;var
@@ -22,7 +22,7 @@ export class UpdateComponent implements OnInit {
 
   updatefunction(prdctid,prdctname,prdcttype){
 
- this.abc = {}
+
  this.body = {
   "PId":prdctid,
   "Ptitle": prdcttype,
@@ -31,7 +31,7 @@ export class UpdateComponent implements OnInit {
  this.updateserve.Updaterecord(this.body).subscribe((result: any)=> {
 
       alert(result.message)
-   this.xy = result.message;
+   this.response = result.message;
 
 
 

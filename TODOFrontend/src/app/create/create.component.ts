@@ -10,8 +10,8 @@ import { AlloperationComponent } from '../alloperation/alloperation.component'
   styleUrls: ['./create.component.css']
 })
 export class CreateComponent implements OnInit {
-  abc : any;
-  xy: any;
+
+  response: any;
   body: any;
   
 
@@ -35,9 +35,9 @@ export class CreateComponent implements OnInit {
     }
     this.createservice.SaveRecord(this.body).subscribe((result: any) => {
 
-      this.xy = result;
+      this.response = result;
 
-      alert(this.xy.message)
+      alert(this.response.message)
       });
      
 

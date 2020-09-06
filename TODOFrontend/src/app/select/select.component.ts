@@ -11,8 +11,8 @@ import { DeleteService } from '../delete/delete.service'
 export class SelectComponent implements OnInit {
 
   abc : any;
-  xy: any ;
-  xyz: any;
+  response: any ;
+  responsez: any;
   isLoading = false
   constructor(private router: Router, private selectService : SelectService, private deleteService: DeleteService) { }
 
@@ -31,7 +31,7 @@ export class SelectComponent implements OnInit {
    findAllData() {
      this.abc = {};
      this.selectService.getAllRecord(this.abc).subscribe((result: any) => {
-     this.xy = result;
+     this.response = result;
 
      })
     

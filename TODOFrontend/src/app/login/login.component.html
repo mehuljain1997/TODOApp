@@ -1,0 +1,26 @@
+
+<h3 style="text-align: center; color:rgb(3, 3, 2);">Please Enter Valid UserName And Password</h3>
+<div class="example-container" style="text-align: center;">
+    <mat-form-field appearance="fill">
+      <mat-label>Username</mat-label>
+      <input #username matInput  placeholder="Enter username">
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+        <mat-label>password</mat-label>
+        <textarea  #password matInput  placeholder="Enter password" ></textarea>
+      </mat-form-field>
+    <br>
+   
+    <br>
+    
+        <button (click) = "generatetoken(username.value, password.value)" mat-flat-button color="accent">Submit</button>
+   
+   
+    
+  
+  </div>
+
+  <br>
+  <br>
+  {{response}}

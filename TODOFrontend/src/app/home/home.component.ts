@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
 
   }
 
-  navigate1(){
+  addproduct(){
  
     this.router.navigate(['/create']);
 }

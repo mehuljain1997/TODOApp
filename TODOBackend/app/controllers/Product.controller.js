@@ -1,4 +1,58 @@
 const Product = require('../models/Product.model.js');
+const jwt = require('jsonwebtoken');
+const accessTokenSecret = 'MyTODOApp';
+
+const users = [
+    {
+        username: 'john',
+        password: 'password123admin',
+        role: 'admin'
+    }, {
+        username: 'anna',
+        password: 'password123member',
+        role: 'member'
+    }
+];
+
+exports.login = (req, res) => {
+
+    // Read username and password from request body
+    const { username, password } = req.body;
+
+    // Filter user from the users array by username and password
+    const user = users.find(u => { return u.username === username && u.password === password });
+
+    if (user) {
+        // Generate an access token
+        const accessToken = jwt.sign({ username: user.username,  role: user.role }, accessTokenSecret);
+
+        res.json({
+            accessToken
+        });
+    } else {
+        res.json({'message':'Username or password incorrect'});
+    }
+}
+
+
+exports.authenticateJWT = (req, res, next) => {
+    const authHeader = req.headers.authorization;
+
+    if (authHeader) {
+        const token = authHeader.split(' ')[1];
+
+        jwt.verify(token, accessTokenSecret, (err, user) => {
+            if (err) {
+                return res.sendStatus(403);
+            }
+
+            req.user = user;
+            next();
+        });
+    } else {
+        res.sendStatus(401);
+    }
+};
 
 
 
@@ -36,11 +90,9 @@ exports.create = (req, res) => {
 
 
 
-
-
-
 // Retrieve and return all Products from the database.
 exports.findAll = (req, res) => {
+
 
     Product.find()
     .then(Products => {
@@ -51,19 +103,12 @@ exports.findAll = (req, res) => {
             message: err.message || "Some error occurred while retrieving Products."
         });
     });
-
-
-
 };
 
 
 
 // Find a single Product with a ProductId
 exports.findOne = (req, res) => {
- 
-
-
-
     Product.find({"PId": Number(req.params.PId)})
     .then(Product => {
 
@@ -83,20 +128,13 @@ exports.findOne = (req, res) => {
             message: "Error retrieving Product with id " + req.params.PId
         });
     });
-
-    
-
 };
 
 // Update a Product identified by the ProductId in the request
 exports.update = (req, res) => {
 
-
-
-
-
       // Validate Request
-      if(!req.body.PId) {
+      if(!req.params.PId) {
         return res.status(400).send({
             message: "Product PId can not be empty"
         });
@@ -130,15 +168,11 @@ exports.update = (req, res) => {
     res.send({
         message: "Product Update Successfully"
     });
-
-
-
-    
+  
 };
 
 // Delete a Product with the specified ProductId in the request
 exports.delete = (req, res) => {
-
 
     Product.deleteMany({"PId": Number(req.params.PId)})
     .then(Product => {
