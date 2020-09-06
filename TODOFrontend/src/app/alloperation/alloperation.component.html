@@ -1,13 +1,18 @@
 
 <div>
-
-    <mat-form-field appearance="fill">
-        <mat-label>ProductName</mat-label>
-        <textarea  #Productname matInput name ="ProductInputName" placeholder="Enter Product Name" ></textarea>
-      </mat-form-field>
-      <button (click) = "changefunction(Productname.value)" mat-flat-button color="accent">Submit</button>
+ 
     <app-create></app-create>
+    <br>
     <app-select></app-select>
+    <br>
     <app-select-by-id  [selectidmessage] = "message"></app-select-by-id>
+    <br>
+
+    <app-update></app-update>
+    <br>
+
+    <app-delete></app-delete>
+
+    
 
 </div>
